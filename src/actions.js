@@ -16,7 +16,7 @@ export const notEkleAPI = (yeniNot) => (dispatch) => {
   axios
     .post("https://httpbin.org/anything", yeniNot)
     .then((res) => {
-      console.log("Yeni not: ", yeniNot);
+      console.log("Post edilen data: ", res);
       if (res.status === 200) {
         // res.data objesi içerisinden ihtiyaç duyduğunuz değeri bulun ve oluşturduğunuz notEkle ile dispatch edin
       }
@@ -26,7 +26,8 @@ export const notEkleAPI = (yeniNot) => (dispatch) => {
 };
 
 export const notSilAPI = (id) => (dispatch) => {
-  console.log(id);
+  dispatch(notSil(id));
+  console.log("Not sil id", id);
   axios
     .delete("https://httpbin.org/anything", { data: id })
     .then((res) => {
