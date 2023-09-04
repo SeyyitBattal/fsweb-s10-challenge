@@ -1,3 +1,4 @@
+import { legacy_createStore as createStore } from "redux";
 import { NOT_EKLE } from "./actions";
 import { NOT_SIL } from "./actions";
 
@@ -48,3 +49,5 @@ export function reducer(state = baslangicDegerleri, action) {
       return state;
   }
 }
+
+export const store = createStore(reducer);

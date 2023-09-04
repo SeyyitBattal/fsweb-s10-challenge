@@ -4,6 +4,7 @@ import { nanoid } from "nanoid";
 import { useHistory } from "react-router";
 import Gratitude from "./../assets/grForm.png";
 import { notEkle } from "../actions";
+import { useDispatch } from "react-redux";
 
 export default function PostForm() {
   const {
@@ -11,7 +12,7 @@ export default function PostForm() {
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: "onChange" });
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const history = useHistory();
 
   function onSubmit(data) {
@@ -79,7 +80,7 @@ export default function PostForm() {
         <button
           type="submit"
           className="myButton"
-          // onClick={() => dispatch(notEkle())}
+          onClick={() => dispatch(notEkle())}
         >
           Ekle
         </button>
